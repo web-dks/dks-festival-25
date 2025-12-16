@@ -1,0 +1,104 @@
+/* StageTabs Styles - DKS Festival 25 */
+.stage-tabs {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-bottom: 2rem;
+  background: var(--color-dark-gray);
+  border-radius: 12px;
+  padding: 6px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stage-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stage-tab:hover:not(.active) {
+  background: rgba(97, 184, 222, 0.1);
+}
+
+.stage-tab.active {
+  background: var(--color-blue);
+  box-shadow: 0 4px 15px rgba(97, 184, 222, 0.4);
+}
+
+.tab-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--color-light-gray);
+  transition: color 0.3s ease;
+}
+
+.stage-tab.active .tab-name {
+  color: var(--color-black);
+}
+
+.stage-tab:hover:not(.active) .tab-name {
+  color: var(--color-white);
+}
+
+.tab-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-light-gray);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.stage-tab.active .tab-subtitle {
+  color: var(--color-black);
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .stage-tabs {
+    flex-direction: column;
+    max-width: 280px;
+  }
+  
+  .stage-tab {
+    padding: 0.85rem 1rem;
+  }
+  
+  .tab-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .stage-tabs {
+    max-width: 550px;
+  }
+  
+  .stage-tab {
+    padding: 1.25rem 2rem;
+  }
+  
+  .tab-name {
+    font-size: 1.1rem;
+  }
+  
+  .tab-subtitle {
+    font-size: 0.75rem;
+  }
+}
+

@@ -1,0 +1,135 @@
+/* Footer Styles - DKS Festival 25 */
+.footer {
+  background: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark-gray) 100%);
+  padding: 3rem 1rem;
+  text-align: center;
+  border-top: 2px solid var(--color-blue);
+  margin-top: auto;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(ellipse at center bottom, rgba(97, 184, 222, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Footer Decoration */
+.footer .footer-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer .decoration-line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-blue), transparent);
+}
+
+.footer .decoration-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-blue);
+}
+
+/* Footer Message */
+.footer-message {
+  margin-bottom: 2rem;
+}
+
+.message-main {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.message-cta {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-light-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.message-cta .highlight {
+  color: var(--color-blue);
+  font-weight: 700;
+}
+
+/* Footer Brand */
+.footer-brand {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 10px rgba(97, 184, 222, 0.2));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 15px rgba(97, 184, 222, 0.4));
+}
+
+/* Footer Social */
+.footer-social {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(97, 184, 222, 0.2);
+}
+
+.social-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-light-gray);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .footer {
+    padding: 4rem 2rem;
+  }
+  
+  .message-main {
+    font-size: 2rem;
+  }
+  
+  .message-cta {
+    font-size: 1.1rem;
+  }
+  
+  .footer .decoration-line {
+    width: 120px;
+  }
+}
+

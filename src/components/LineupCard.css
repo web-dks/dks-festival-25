@@ -1,0 +1,284 @@
+/* LineupCard Styles - DKS Festival 25 */
+.lineup-card {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  opacity: 0;
+}
+
+/* Status Badge */
+.status-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  padding: 0.35rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.current-badge {
+  background: var(--color-blue);
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  animation: glow 2s infinite;
+  border: 2px solid var(--color-red);
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-red);
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.next-badge {
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+  border: 1px solid var(--color-blue);
+}
+
+/* Timeline Connector */
+.timeline-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.timeline-line {
+  width: 2px;
+  flex: 1;
+  min-height: 20px;
+}
+
+.timeline-line.top {
+  background: linear-gradient(180deg, var(--color-light-gray), var(--color-blue));
+}
+
+.timeline-line.bottom {
+  background: linear-gradient(180deg, var(--color-blue), var(--color-light-gray));
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-light-gray);
+  border: 2px solid var(--color-black);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-dot.current {
+  width: 16px;
+  height: 16px;
+  background: var(--color-blue);
+  box-shadow: 0 0 15px var(--color-blue), 0 0 30px rgba(97, 184, 222, 0.5);
+}
+
+.timeline-dot.next {
+  background: var(--color-blue-dark);
+  box-shadow: 0 0 8px var(--color-blue-dark);
+}
+
+.timeline-dot.past {
+  background: var(--color-light-gray);
+  opacity: 0.5;
+}
+
+/* Card Content */
+.card-content {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(42, 40, 37, 0.9) 0%, rgba(26, 24, 22, 0.95) 100%);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.lineup-card.current .card-content {
+  border-color: var(--color-blue);
+  background: linear-gradient(135deg, rgba(97, 184, 222, 0.1) 0%, rgba(26, 24, 22, 0.98) 100%);
+  box-shadow: 0 0 20px rgba(97, 184, 222, 0.2);
+}
+
+.lineup-card.next .card-content {
+  border-color: var(--color-blue-dark);
+}
+
+.lineup-card.past .card-content {
+  opacity: 0.6;
+}
+
+.lineup-card.past .card-title {
+  color: var(--color-light-gray);
+}
+
+/* Card Time */
+.card-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-blue);
+}
+
+.time-separator {
+  color: var(--color-light-gray);
+}
+
+/* Card Category */
+.card-category {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+  background: var(--color-light-gray);
+  color: var(--color-white);
+}
+
+.category-dj {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.category-banda {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.category-samba {
+  background: linear-gradient(135deg, #f39c12, #d68910);
+}
+
+.category-talk {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
+}
+
+.category-coffee {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+.category-bar {
+  background: linear-gradient(135deg, #f1c40f, #d4ac0d);
+}
+
+.category-transicao {
+  background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+}
+
+.category-retrospectiva {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.category-quiz {
+  background: linear-gradient(135deg, #e91e63, #c2185b);
+}
+
+.category-encerramento {
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+}
+
+/* Card Title */
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.lineup-card.current .card-title {
+  color: var(--color-blue-light);
+  text-shadow: 0 0 20px rgba(97, 184, 222, 0.3);
+}
+
+/* Card Description */
+.card-description {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-white);
+  line-height: 1.5;
+}
+
+/* Hover Effect */
+.lineup-card:not(.past) .card-content:hover {
+  transform: translateX(4px);
+  border-color: var(--color-blue);
+  box-shadow: -4px 0 0 var(--color-blue), 0 4px 20px rgba(97, 184, 222, 0.15);
+}
+
+/* First and Last Card Timeline Adjustments */
+.lineup-card:first-child .timeline-line.top {
+  background: transparent;
+}
+
+.lineup-card:last-child .timeline-line.bottom {
+  background: transparent;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .lineup-card {
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+  }
+  
+  .timeline-connector {
+    width: 32px;
+  }
+  
+  .timeline-dot {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .timeline-dot.current {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+  }
+  
+  .card-time {
+    font-size: 0.95rem;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+  }
+  
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-title {
+    font-size: 2rem;
+  }
+}
+

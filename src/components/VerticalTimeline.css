@@ -1,0 +1,120 @@
+/* VerticalTimeline Styles - DKS Festival 25 */
+.vertical-timeline {
+  padding: 2rem 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Timeline Header */
+.timeline-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--color-white);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 30px rgba(97, 184, 222, 0.3);
+}
+
+.timeline-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-blue);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.timeline-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(97, 184, 222, 0.1);
+  border: 1px solid var(--color-blue);
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.duration-icon {
+  font-size: 1rem;
+}
+
+/* Timeline Container */
+.timeline-container {
+  position: relative;
+}
+
+/* Background decoration */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 11px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    180deg, 
+    transparent 0%, 
+    var(--color-light-gray) 5%, 
+    var(--color-light-gray) 95%, 
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+.timeline-items {
+  position: relative;
+  z-index: 1;
+}
+
+/* Timeline Footer */
+.timeline-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(97, 184, 222, 0.2);
+}
+
+.footer-note {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-light-gray);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .vertical-timeline {
+    padding: 3rem 2rem;
+  }
+  
+  .timeline-title {
+    font-size: 4.5rem;
+  }
+  
+  .timeline-subtitle {
+    font-size: 1rem;
+  }
+  
+  .timeline-container::before {
+    left: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .timeline-title {
+    font-size: 5rem;
+  }
+}
+
