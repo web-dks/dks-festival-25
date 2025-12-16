@@ -58,7 +58,7 @@ export const lineupData: LineupItem[] = [
   },
   {
     id: "h2",
-    title: "TALK DKS",
+    title: "DKS TALKS",
     since: "2025-12-19T09:30:00",
     till: "2025-12-19T11:10:00",
     category: "Talk",
