@@ -27,10 +27,6 @@ export function Footer() {
             className="footer-logo"
           />
         </div>
-        
-        <div className="footer-social">
-          <p className="social-text">SIGA @DKSFESTIVAL</p>
-        </div>
       </div>
     </footer>
   );
