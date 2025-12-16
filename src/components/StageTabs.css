@@ -71,16 +71,18 @@
 /* Responsive */
 @media (max-width: 480px) {
   .stage-tabs {
-    flex-direction: column;
-    max-width: 280px;
+    flex-direction: row;
+    max-width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   
   .stage-tab {
-    padding: 0.85rem 1rem;
+    padding: 1rem 0.75rem;
   }
   
   .tab-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
