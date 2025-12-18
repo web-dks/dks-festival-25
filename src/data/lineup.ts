@@ -60,31 +60,22 @@ export const lineupData: LineupItem[] = [
     id: "h2",
     title: "DKS TALKS",
     since: "2025-12-19T09:30:00",
-    till: "2025-12-19T11:10:00",
+    till: "2025-12-19T11:00:00",
     category: "Talk",
     description: "Palestras e conversas inspiradoras",
     stage: "horta"
   },
   {
     id: "h3",
-    title: "MUDANÇA DE AMBIENTE",
-    since: "2025-12-19T11:10:00",
+    title: "RETROSPECTIVA",
+    since: "2025-12-19T11:00:00",
     till: "2025-12-19T11:30:00",
-    category: "Transição",
-    description: "Transição para o Palco Principal",
+    category: "Retrospectiva",
+    description: "Retrospectiva DKS 2025",
     stage: "horta"
   },
 
   // ===== PALCO PRINCIPAL =====
-  {
-    id: "p1",
-    title: "RETROSPECTIVA",
-    since: "2025-12-19T11:30:00",
-    till: "2025-12-19T12:00:00",
-    category: "Retrospectiva",
-    description: "Retrospectiva DKS 2025",
-    stage: "palco"
-  },
   {
     id: "p1b",
     title: "ABERTURA DO BAR",
