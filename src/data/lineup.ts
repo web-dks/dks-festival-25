@@ -62,7 +62,7 @@ export const lineupData: LineupItem[] = [
     since: "2025-12-19T09:30:00",
     till: "2025-12-19T11:00:00",
     category: "Talk",
-    description: "Palestras e conversas inspiradoras",
+    description: "Do presente ao futuro: nossa trajetória",
     stage: "horta"
   },
   {
@@ -79,8 +79,8 @@ export const lineupData: LineupItem[] = [
   {
     id: "p1b",
     title: "ABERTURA DO BAR",
-    since: "2025-12-19T12:00:00",
-    till: "2025-12-19T12:15:00",
+    since: "2025-12-19T11:30:00",
+    till: "2025-12-19T11:45:00",
     category: "Bar",
     description: "Bar e buffet liberados",
     stage: "palco"
@@ -88,8 +88,8 @@ export const lineupData: LineupItem[] = [
   {
     id: "p2",
     title: "QUIZ DKS",
-    since: "2025-12-19T12:15:00",
-    till: "2025-12-19T13:00:00",
+    since: "2025-12-19T12:00:00",
+    till: "2025-12-19T12:30:00",
     category: "Quiz",
     description: "Quiz interativo com premiação",
     stage: "palco"
