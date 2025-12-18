@@ -191,12 +191,35 @@
   border: 3px solid var(--color-blue);
   position: relative;
   background: #000;
+  transition: opacity 0.3s ease;
+}
+
+.scanner-area.scanner-loading {
+  opacity: 0.3;
+}
+
+.scanner-area.scanner-hidden {
+  display: none;
 }
 
 .scanner-area video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Garante que o container do QR reader tenha tamanho */
+#qr-reader {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 300px;
+}
+
+#qr-reader video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 12px;
 }
 
 /* Scanner overlay corners */

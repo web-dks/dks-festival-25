@@ -160,42 +160,62 @@ export function QRScanner({ tipoAtivacao, onResultado, onVoltar }: QRScannerProp
     
     let mounted = true;
     
+    const pararScannerAnterior = async () => {
+      if (scannerRef.current) {
+        try {
+          const state = scannerRef.current.getState();
+          if (state === Html5QrcodeScannerState.SCANNING || state === Html5QrcodeScannerState.PAUSED) {
+            await scannerRef.current.stop();
+          }
+        } catch {
+          // Ignora
+        }
+        scannerRef.current = null;
+      }
+    };
+
     const iniciarScanner = async () => {
       try {
         // Para scanner anterior se existir
-        if (scannerRef.current) {
-          try {
-            const state = scannerRef.current.getState();
-            if (state === Html5QrcodeScannerState.SCANNING || state === Html5QrcodeScannerState.PAUSED) {
-              await scannerRef.current.stop();
-            }
-          } catch {
-            // Ignora
-          }
-        }
+        await pararScannerAnterior();
 
-        // Aguarda o elemento estar no DOM
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Aguarda o elemento estar no DOM e renderizado
+        await new Promise(resolve => setTimeout(resolve, 300));
         
         const element = document.getElementById('qr-reader');
-        if (!element || !mounted) return;
+        if (!element || !mounted) {
+          console.error('Elemento qr-reader não encontrado');
+          return;
+        }
+
+        // Limpa o conteúdo do elemento para evitar conflitos
+        element.innerHTML = '';
         
-        const html5QrCode = new Html5Qrcode('qr-reader');
+        const html5QrCode = new Html5Qrcode('qr-reader', {
+          verbose: false,
+          formatsToSupport: undefined
+        });
         scannerRef.current = html5QrCode;
+
+        console.log('Iniciando scanner com câmera:', selectedCamera);
 
         await html5QrCode.start(
           selectedCamera,
           {
             fps: 10,
             qrbox: { width: 250, height: 250 },
+            aspectRatio: 1,
           },
           (decodedText) => {
+            console.log('QR Code detectado:', decodedText);
             processarQRCodeCallback(decodedText);
           },
           () => {
             // QR code not found - silently continue scanning
           }
         );
+
+        console.log('Scanner iniciado com sucesso');
 
         if (mounted) {
           setIsLoading(false);
@@ -209,7 +229,7 @@ export function QRScanner({ tipoAtivacao, onResultado, onVoltar }: QRScannerProp
           } else if (errorMessage.includes('NotFoundError') || errorMessage.includes('no camera')) {
             setErro('Nenhuma câmera encontrada. Verifique se seu dispositivo possui câmera.');
           } else {
-            setErro('Não foi possível acessar a câmera. Verifique as permissões do navegador.');
+            setErro(`Erro ao iniciar câmera: ${errorMessage}`);
           }
           setIsLoading(false);
         }
@@ -220,16 +240,7 @@ export function QRScanner({ tipoAtivacao, onResultado, onVoltar }: QRScannerProp
 
     return () => {
       mounted = false;
-      if (scannerRef.current) {
-        try {
-          const state = scannerRef.current.getState();
-          if (state === Html5QrcodeScannerState.SCANNING || state === Html5QrcodeScannerState.PAUSED) {
-            scannerRef.current.stop().catch(() => {});
-          }
-        } catch {
-          // Ignora erros ao parar scanner já parado
-        }
-      }
+      pararScannerAnterior();
     };
   }, [selectedCamera, erro, processarQRCodeCallback]);
 
@@ -284,17 +295,18 @@ export function QRScanner({ tipoAtivacao, onResultado, onVoltar }: QRScannerProp
       )}
 
       <div 
-        className="scanner-area" 
-        style={{ display: isLoading || erro ? 'none' : 'block' }}
+        className={`scanner-area ${isLoading ? 'scanner-loading' : ''} ${erro ? 'scanner-hidden' : ''}`}
       >
         <div id="qr-reader" />
-        <div className="scanner-overlay">
-          <div className="scanner-corner top-left" />
-          <div className="scanner-corner top-right" />
-          <div className="scanner-corner bottom-left" />
-          <div className="scanner-corner bottom-right" />
-          <div className="scanner-line" />
-        </div>
+        {!isLoading && !erro && (
+          <div className="scanner-overlay">
+            <div className="scanner-corner top-left" />
+            <div className="scanner-corner top-right" />
+            <div className="scanner-corner bottom-left" />
+            <div className="scanner-corner bottom-right" />
+            <div className="scanner-line" />
+          </div>
+        )}
       </div>
 
       {processando && (
