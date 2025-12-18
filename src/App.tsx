@@ -1,10 +1,12 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { VerticalTimeline } from './components/VerticalTimeline';
 import { Footer } from './components/Footer';
+import { Ativacoes } from './pages/Ativacoes';
 import './styles/globals.css';
 import './App.css';
 
-function App() {
+function HomePage() {
   return (
     <div className="app">
       <Header />
@@ -15,6 +17,17 @@ function App() {
       
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/ativacoes" element={<Ativacoes />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
